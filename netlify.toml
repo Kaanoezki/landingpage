@@ -1,0 +1,16 @@
+# netlify.toml
+
+[build]
+  base = "/src"
+  publish = "/src"  # Change this if your built files are in a different subdirectory
+  command = "your_build_command"  # Replace with your actual build command
+
+[[redirects]]
+  from = "/*"
+  to = "/src/:splat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
